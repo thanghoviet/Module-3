@@ -1,0 +1,34 @@
+/* Tất cả các màn hình có độ phân giải thấp nhất là 1001px */
+@media all and (min-width: 1001px){
+	body{
+		background-color: red; 
+	}
+}
+
+/* Màn hình có độ phân giải tối đa 1000px */ 
+@media screen and (max-width: 1000px) {
+	body{
+		background-color: green; 
+	}
+}
+
+/* Màn hình có độ phân giải tối đa 750px */  
+@media screen and (max-width: 750px) {
+  	body{
+		background-color: blue; 
+	}
+}
+
+/* Màn hình có độ phân giải tối đa 540px */ 
+@media screen and (max-width: 540px) {
+ 	body{
+		background-color: yellow; 
+	}
+}
+
+/* Màn hình có độ phân giải tối đa 380px */ 
+@media screen and (max-width: 380px) {
+  	body{
+		background-color: orange; 
+	}
+}
