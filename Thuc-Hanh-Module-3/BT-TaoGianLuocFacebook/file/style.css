@@ -1,0 +1,76 @@
+:root {
+  --white-cl: #ffffff;
+  --secondary-btn-cl: #e4e6eb;
+  --secondary-dark-btn-cl: #8a8b8f;
+  --dark-cl: #333333;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #a8a6a6;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3.5rem;
+  background-color: var(--white-cl);
+}
+
+.nav-bar .nav-part {
+  display: flex;
+  align-items: center;
+}
+
+.nav-bar .nav-part .nav-search {
+  background-color: var(--secondary-btn-cl);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;
+  width: 220px;
+  margin: 10px;
+}
+.btn-rounded {
+  margin: 40px;
+  color: var(--secondary-dark-btn-cl);
+}
+.btn-circle {
+  background-color: #aaabaf;
+  border-radius: 100%;
+  margin: 10px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.user {
+  display: flex;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center;
+  background-color: #f7e6e6;
+  border-radius: 15px;
+}
+.user img {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+}
+.user p {
+  margin: 5px;
+}
+.fa-universal-access {
+  font-size: 30px;
+}
+.fa-facebook {
+  color: #3180ad;
+}
