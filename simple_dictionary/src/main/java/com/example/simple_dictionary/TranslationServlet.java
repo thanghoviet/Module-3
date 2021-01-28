@@ -14,7 +14,7 @@ import java.util.Map;
 public class TranslationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-                 //chỉnh unikey hiển thị
+        //chỉnh unikey hiển thị
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf-8");
 

@@ -22,7 +22,6 @@ public class LoginServlet extends HttpServlet {
         } else{
             writer.println("<h1>Login Error</h1>");
         }
-
         writer.println("</html>");
     }
 
