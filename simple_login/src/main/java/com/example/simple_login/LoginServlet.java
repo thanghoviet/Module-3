@@ -15,14 +15,11 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         PrintWriter writer = response.getWriter();
-        writer.println("<html>");
-
         if("admin".equals(username) && "admin".equals(password)) {
             writer.println("<h1>Welcome "+username+" to website</h1>");
         } else{
             writer.println("<h1>Login Error</h1>");
         }
-        writer.println("</html>");
     }
 
 

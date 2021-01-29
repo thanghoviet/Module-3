@@ -7,15 +7,15 @@
 <head>
     <title>JSP - Hello World</title>
     <style>
-         td {
-            border: 1px solid red;
+        tr,td {
+            border: 1px solid;
         }
     </style>
 </head>
 <body>
 
 
-<table >
+<table>
     <caption>Danh Sách Khách Hàng</caption>
     <tr>
         <th>Tên</th>
@@ -23,7 +23,7 @@
         <th>Địa chỉ</th>
         <th>Ảnh</th>
     </tr>
-    <c:forEach items='${requestScope["arrayList"]}' var = "i" >
+    <c:forEach items='${requestScope["arrayList"]}' var="i">
         <tr>
             <td>${i.name}</td>
             <td>${i.birthday}</td>
