@@ -1,0 +1,8 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+/../../../../../../:\JAVA\[BC-JAVA-JWBD]JavaWebBack-endDevelopment2.0\Module-3(MySQL)\Customeranagement application\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/

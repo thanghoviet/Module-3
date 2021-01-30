@@ -13,13 +13,10 @@
     }
 </style>
 <body>
-<form method="post" action="${pageContext.request.contextPath}/login">
-    <div class="login">
-        <h2>Login</h2>
-        <input type="text" name="username" size="30"  placeholder="username" />
-        <input type="password" name="password" size="30" placeholder="password" />
-        <input type="submit" value="Sign in"/>
-    </div>
+<form action="login.jsp">
+    <p>nhấn login để đăng nhập</p>
+    <input type="submit" value="login">
+
 </form>
 </body>
 </html>

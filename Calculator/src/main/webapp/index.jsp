@@ -5,7 +5,7 @@
     <title>Simple Calculator</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/calculater" method="post">
+<form action="/calculater" method="post">
     <h1>Simple Calculator</h1>
     <h6>calculater</h6>
     <label for="first-operand">First Operand: </label>

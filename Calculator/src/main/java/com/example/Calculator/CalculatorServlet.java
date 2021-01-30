@@ -11,12 +11,9 @@ import java.io.PrintWriter;
 @WebServlet(name = "Calculator-Servlet",urlPatterns = "/calculater")
 public class CalculatorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("hello");
         double firstOperand = Double.parseDouble(request.getParameter("first-operand"));
-        System.out.println(firstOperand);
         double secondOperand = Double.parseDouble(request.getParameter("second-operand"));
         String operator = request.getParameter("operator");
-        System.out.println(operator);
         double result ;
 
 
