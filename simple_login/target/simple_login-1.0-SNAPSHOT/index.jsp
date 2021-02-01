@@ -14,9 +14,12 @@
 </style>
 <body>
 <form action="login.jsp">
-    <p>nhấn login để đăng nhập</p>
-    <input type="submit" value="login">
-
+    <h3>MENU</h3>
+    <ul>
+        <li>Trang chu</li>
+        <li>San Pham</li>
+        <li><input type="submit" value="login"></li>
+    </ul>
 </form>
 </body>
 </html>
