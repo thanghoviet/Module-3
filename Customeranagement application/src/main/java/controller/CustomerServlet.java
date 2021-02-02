@@ -13,15 +13,16 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "CustomerServlet",urlPatterns ="/customers" )
+@WebServlet(name = "CustomerServlet", urlPatterns = "/customers")
 public class CustomerServlet extends HttpServlet {
-    private final CustomerService customerService =  new CustomerServiceimpl();
+    private final CustomerService customerService = new CustomerServiceimpl();
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response) {
         String action = request.getParameter("action");
-        if(action == null){
+        if (action == null) {
             action = "";
         }
-        switch (action){
+        switch (action) {
             case "create":
                 createCustomer(request, response);
                 break;
@@ -38,12 +39,12 @@ public class CustomerServlet extends HttpServlet {
 
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response){
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
         String action = request.getParameter("action");
-        if(action == null){
+        if (action == null) {
             action = "";
         }
-        switch (action){
+        switch (action) {
             case "create":
                 showCreateForm(request, response);
                 break;
@@ -63,7 +64,8 @@ public class CustomerServlet extends HttpServlet {
         }
 
     }
-//nhận về danh sách khách hàng và chuyển sang view customer/list.jsp để hiển thị.
+
+    //nhận về danh sách khách hàng và chuyển sang view customer/list.jsp để hiển thị.
     private void listCustomers(HttpServletRequest request, HttpServletResponse response) {
         List<Customer> customers = this.customerService.findAll();
         request.setAttribute("customers", customers);
@@ -75,8 +77,9 @@ public class CustomerServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-// trả về một form được định nghĩa trong view
-    private void showCreateForm(HttpServletRequest request, HttpServletResponse response) {
+
+    // trả về một form được định nghĩa trong view
+    private void    showCreateForm(HttpServletRequest request, HttpServletResponse response) {
         RequestDispatcher dispatcher = request.getRequestDispatcher("customer/create.jsp");
         try {
             dispatcher.forward(request, response);
@@ -84,12 +87,13 @@ public class CustomerServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-//khởi tạo đối tượng Customer và lưu trữ vào trong một danh sách khách hàng giả lập.
+
+    //khởi tạo đối tượng Customer và lưu trữ vào trong một danh sách khách hàng giả lập.
     private void createCustomer(HttpServletRequest request, HttpServletResponse response) {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
-        int id = (int)(Math.random() * 10000);
+        int id = (int) (Math.random() * 10000);
 
         Customer customer = new Customer(id, name, email, address);
         this.customerService.save(customer);
@@ -101,14 +105,15 @@ public class CustomerServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-//tìm một khách hàng theo id được truyền vào
+
+    //tìm một khách hàng theo id được truyền vào
 //    Nếu khách hàng không tồn tại thì sẽ hiển thị thông báo lỗi.
 //    Nếu khách hàng có tồn tại thì hiển thị thông tin khách hàng lên một view là customer/edit.jsp:
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Customer customer = this.customerService.findById(id);
         RequestDispatcher dispatcher;
-        if(customer == null){
+        if (customer == null) {
             dispatcher = request.getRequestDispatcher("error-404.jsp");
         } else {
             request.setAttribute("customer", customer);
@@ -129,7 +134,7 @@ public class CustomerServlet extends HttpServlet {
         String address = request.getParameter("address");
         Customer customer = this.customerService.findById(id);
         RequestDispatcher dispatcher;
-        if(customer == null){
+        if (customer == null) {
             dispatcher = request.getRequestDispatcher("error-404.jsp");
         } else {
             customer.setName(name);
@@ -146,12 +151,13 @@ public class CustomerServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-//tính năng xoá một khách hàng
+
+    //tính năng xoá một khách hàng
     private void showDeleteForm(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Customer customer = this.customerService.findById(id);
         RequestDispatcher dispatcher;
-        if(customer == null){
+        if (customer == null) {
             dispatcher = request.getRequestDispatcher("error-404.jsp");
         } else {
             request.setAttribute("customer", customer);
@@ -163,12 +169,13 @@ public class CustomerServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
-//xóa 1 khách hàng và đua người đó vào danh sách tạm
+
+    //xóa 1 khách hàng và đua người đó vào danh sách tạm
     private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Customer customer = this.customerService.findById(id);
         RequestDispatcher dispatcher;
-        if(customer == null){
+        if (customer == null) {
             dispatcher = request.getRequestDispatcher("error-404.jsp");
         } else {
             this.customerService.remove(id);
@@ -179,11 +186,12 @@ public class CustomerServlet extends HttpServlet {
             }
         }
     }
+
     private void viewCustomer(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Customer customer = this.customerService.findById(id);
         RequestDispatcher dispatcher;
-        if(customer == null){
+        if (customer == null) {
             dispatcher = request.getRequestDispatcher("error-404.jsp");
         } else {
             request.setAttribute("customer", customer);
