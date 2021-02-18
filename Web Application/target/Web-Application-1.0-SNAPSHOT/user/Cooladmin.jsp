@@ -446,8 +446,14 @@
             <div class="section__content section__content--p30">
                 <div class="container-fluid">
                     <div class="row">
-                        <div>
+                        <div class="button-edit">
                             <a href="/users?action=create"><button type="button" class="btn btn-success">ADD</button></a>
+                        </div>
+                        <div class="button-edit">
+                            <a href="/users?action=search"><button type="button" class="btn btn-success">Search With Country</button></a>
+                        </div>
+                        <div class="button-edit">
+                            <a href="/users?action=sort"><button type="button" class="btn btn-success">Sort By Name</button></a>
                         </div>
                         <div class="col-lg-12">
                             <div class="table-responsive table--no-card m-b-30">
@@ -504,9 +510,8 @@
     <script src="../cooladmin/vendor/circle-progress/circle-progress.min.js"></script>
     <script src="../cooladmin/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
     <script src="../cooladmin/vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="../cooladmin/vendor/select2/select2.min.js">
-    </script>
-
+    <script src="../cooladmin/vendor/select2/select2.min.js">   </script>
+<script src="../cooladmin/css/style-bull.css"></script>
     <!-- Main JS-->
     <script src="../cooladmin/js/main.js"></script>
 
