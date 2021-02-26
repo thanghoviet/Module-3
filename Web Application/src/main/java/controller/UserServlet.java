@@ -13,7 +13,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet(name = "UserServlet" , urlPatterns = "/users")
+@WebServlet(name = "UserServlet", urlPatterns = "/users")
 public class UserServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private UserDAO userDAO;
@@ -21,7 +21,8 @@ public class UserServlet extends HttpServlet {
     public void init() {
         userDAO = new UserDAO();
     }
-//cài đặt msql-connector(https://mvnrepository.com/artifact/mysql/mysql-connector-java/8.0.23)
+
+    //cài đặt msql-connector(https://mvnrepository.com/artifact/mysql/mysql-connector-java/8.0.23)
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         if (action == null) {
@@ -61,10 +62,13 @@ public class UserServlet extends HttpServlet {
                     deleteUser(request, response);
                     break;
                 case "search":
-                    searchByCountry(request,response);
+                    searchByCountry(request, response);
                     break;
                 case "sort":
-                    sortWithName(request,response);
+                    sortWithName(request, response);
+                    break;
+                case "test-without-tran":
+                    testWithoutTran(request, response);
                     break;
                 default:
                     listUser(request, response);
@@ -73,6 +77,12 @@ public class UserServlet extends HttpServlet {
         } catch (SQLException ex) {
             throw new ServletException(ex);
         }
+    }
+
+    private void testWithoutTran(HttpServletRequest request, HttpServletResponse response) {
+
+        userDAO.insertUpdateWithoutTransaction();
+
     }
 
     private void sortWithName(HttpServletRequest request, HttpServletResponse response)
@@ -97,13 +107,13 @@ public class UserServlet extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    private void searchByCountry(HttpServletRequest request,HttpServletResponse response)
+    private void searchByCountry(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, ServletException, IOException {
         String country = request.getParameter("countrys");
         if (country != null) {
             List<User> listUser = userDAO.searchByCountry(country);
-            request.setAttribute("listUser",listUser);
-            request.setAttribute("mess",  "User of country: " + country);
+            request.setAttribute("listUser", listUser);
+            request.setAttribute("mess", "User of country: " + country);
         }
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/search.jsp");
         dispatcher.forward(request, response);
@@ -112,14 +122,14 @@ public class UserServlet extends HttpServlet {
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-//        User existingUser = userDAO.selectUser(id);
         User existingUser = userDAO.getUserById(id);
         RequestDispatcher dispatcher = request.getRequestDispatcher("user/edit.jsp");
         request.setAttribute("user", existingUser);
         dispatcher.forward(request, response);
 
     }
-    private void insertUser(HttpServletRequest request, HttpServletResponse response)
+
+    private void  insertUser(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException, ServletException {
         String name = request.getParameter("name");
         String email = request.getParameter("email");

@@ -6,7 +6,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 public interface IUserDAO {
+    public void insertUpdateWithoutTransaction();
+
+
     public  void sortByName(String name) throws  SQLException;
+
     public  void saerchByCountry(String country) throws SQLException;
 
     public void insertUser(User user) throws SQLException;
@@ -22,5 +26,7 @@ public interface IUserDAO {
     public User getUserById(int id);
 
     public void insertUserStore(User user) throws SQLException;
+
+    public void addUserTransaction(User user, int[] permision);
 }
 
